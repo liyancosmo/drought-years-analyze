@@ -1,14 +1,14 @@
-% filename = 'datas/西藏14点ind-nobridge-SD';
-filename = 'datas/QTP';
+% 选择文件
+[filename, filesuffix] = select_file('选择文件');
 
 % 加载数据
-data = load_data([filename '.xlsx']);
+data = load_data([filename, filesuffix]);
 
 % 分析干旱年
 result = analyze_drougths(data, 'windowsize', 5, 'cs', 2);
 
 % 保存分析结果为excel表
-summary_analyze(result, [filename '.out.xlsx']);
+summary_analyze(result, [filename, '.out', filesuffix]);
 
 % 画图timeline选项
 %   'years': 使用年份作为横坐标

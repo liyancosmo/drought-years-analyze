@@ -1,3 +1,5 @@
 *.asv
 *.xlsx
+*.mat
+*.(png|jpg|jpeg)
 /datas
