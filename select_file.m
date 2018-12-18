@@ -10,8 +10,6 @@ end
 filename = fullfile(filedir, filename);
 default_filename = filename;
 save('default_filename.mat', 'default_filename');
-lastdot = strfind(filename, '.');
-filesuffix = filename(lastdot:end);
-filename = filename(1:lastdot-1);
+[filename,filesuffix] = split_filename(filename);
 end
 

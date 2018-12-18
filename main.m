@@ -1,5 +1,13 @@
-% 选择文件
-[filename, filesuffix] = select_file('选择文件');
+% 设置文件名，如果设置了，就不会弹框选择文件
+filename = 'datas/QTP.xlsx';
+
+% 弹框选择文件或使用设置好的文件名
+select_file_title = '选择文件';
+if exist('filename', 'var') && exist(filename, 'file')
+    [filename, filesuffix] = split_filename(filename);
+else
+    [filename, filesuffix] = select_file('选择文件');
+end
 
 % 加载数据
 data = load_data([filename, filesuffix]);
